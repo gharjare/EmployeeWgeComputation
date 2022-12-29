@@ -8,9 +8,10 @@ namespace EmpWageComputation
 {
     public class EmployeeWage
     {
-        public static void CheckWages()
+        public static void CheckPartTime()
         {
             int Is_Full_Time = 1;
+            int Is_Part_Time = 2;
             int Emp_Rate_per_Hour = 20;
             int empHrs = 0;
             int empWage = 0;
@@ -22,10 +23,14 @@ namespace EmpWageComputation
                 Console.WriteLine("Employee is present");
                 empHrs = 8;
             }
-            else
+            else if(empCheck == Is_Part_Time)
             {
                 Console.WriteLine("Employee is absent");
-                empWage = 0;
+                empHrs = 4;
+            }
+            else
+            {
+                empHrs = 0;
             }
             empWage = empHrs * Emp_Rate_per_Hour;
             Console.WriteLine("Employeewage" + empWage);
