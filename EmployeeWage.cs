@@ -8,32 +8,33 @@ namespace EmpWageComputation
 {
     public class EmployeeWage
     {
-        public static void CheckPartTime()
+      public const  int Is_Full_Time = 1;
+      public const  int Is_Part_Time = 2;
+       
+        public static void Switchcase()
         {
-            int Is_Full_Time = 1;
-            int Is_Part_Time = 2;
-            int Emp_Rate_per_Hour = 20;
-            int empHrs = 0;
+           int Emp_Rate_per_Hour = 20;
+           int empHrs = 0;
             int empWage = 0;
 
             Random random = new Random();
             int empCheck = random.Next(0,2);
-            if(empCheck == Is_Full_Time)
+            switch(empCheck)
             {
-                Console.WriteLine("Employee is present");
-                empHrs = 8;
-            }
-            else if(empCheck == Is_Part_Time)
-            {
-                Console.WriteLine("Employee is absent");
-                empHrs = 4;
-            }
-            else
-            {
-                empHrs = 0;
+                case Is_Full_Time:
+                    Console.WriteLine("Employee is full time");
+                    empHrs = 8;
+                    break;
+                    case Is_Part_Time:
+                    Console.WriteLine("Employee is part time");
+                    empHrs = 4;
+                    break;
+                    default:
+                    Console.WriteLine("Employee is absent");
+                    break;
             }
             empWage = empHrs * Emp_Rate_per_Hour;
-            Console.WriteLine("Employeewage" + empWage);
+            Console.WriteLine("Emp Wage : " + empWage);
         }
     }
 }
